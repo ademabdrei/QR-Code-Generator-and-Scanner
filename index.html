@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator and Scanner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>QR Code Generator and Scanner</h1>
+  </header>
+
+  <main>
+    <section id="generator">
+      <h2>Generate QR Code</h2>
+      <div class="input-group">
+        <input type="text" id="textInput" placeholder="Enter text or URL">
+        <label for="fileInput" class="file-label">Choose File (TXT/PDF):</label>
+        <!--
+
+         <div id="fileInfo">
+            <input type="file" id="fileInput" accept=".txt,.pdf" onchange="handleFileSelect(event)">
+          </div>
+           -->
+      </div>
+      <div class="color-picker">
+        <label for="colorPicker">Choose Color:</label>
+        <input type="color" id="colorPicker" value="#000000">
+      </div>
+      <button id="generateButton" onclick="generateQRCode()">Generate</button>
+      <button id="clearButton">Clear</button> <!-- Added clear button -->
+      <button id="downloadButton" onclick="downloadQRCode()">Download QR Code</button>
+      <canvas id="qrCodeCanvas"></canvas>
+      <div id="errorMessage"></div>
+    </section>
+
+
+
+
+
+    <section id="scanner">
+      <h2>Scan QR Code</h2>
+      <div class="file-input">
+        <input type="file" accept="image/*" id="fileInput" onchange="scanQRCode()">
+        <label for="fileInput" id="scanButton">
+          <img src="upload.png" alt="Upload" class="upload-icon">
+          Upload HTML File
+        </label>
+        <!--
+
+
+
+        <div style="display: flex;      background-color: #34d399;
+        ">
+          <img style="height: 50px;" src="upload.png" alt="">
+          <label for="fileInput" id="scanButton">Select Image</label>
+        </div>
+      </div>
+      -->
+
+
+        <div id="ScanErrorMessage"></div>
+
+        <div id="qrResult">
+          <!-- Display the QR code result here -->
+          <!-- Add controls for copying and downloading -->
+          <div class="controls">
+            <button id="copyButton" onclick="copyResult()" disabled>Copy Result</button>
+            <button id="downloadTextButton" onclick="downloadText()" disabled>Download as Text</button>
+            <button id="downloadPDFButton" onclick="downloadPDF()" disabled>Download as PDF</button>
+          </div>
+          <div id="resultContent">Result Content</div>
+
+        </div>
+
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 QR Code Generator and Scanner</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instascan@1.0.0/dist/instascan.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>
